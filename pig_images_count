@@ -13,17 +13,17 @@ video = cv2.VideoCapture('VID.mp4')
 success, image = video.read()
 count = 0
 frame_count = 0
-saved_count = 0  # initialize counter for saved frames
+saved_count = 0  
 
 # Loop through the video frames
-while success and saved_count < 15000:  # stop loop when 15000 frames are saved
+while success and saved_count < 15000:  
     cv2.imshow('Video', image)
     if count % 4 == 0 and frame_count < 3:
         filename = f'Pictures/pig/frame_{count}.jpg'
         cv2.imwrite(filename, image)
         print(f'Frame {count} saved')
         frame_count += 1
-        saved_count += 1  # increment saved frame counter
+        saved_count += 1 
 
     
     elif count % 4 != 0:
@@ -31,7 +31,7 @@ while success and saved_count < 15000:  # stop loop when 15000 frames are saved
             filename = f'Pictures/pig/frame_{count}.jpg'
             cv2.imwrite(filename, image)
             print(f'Frame {count} saved')
-            saved_count += 1  # increment saved frame counter
+            saved_count += 1  
     else:
         frame_count = 0
 
@@ -47,4 +47,4 @@ while success and saved_count < 15000:  # stop loop when 15000 frames are saved
 video.release()
 cv2.destroyAllWindows()
 
-print(f'{saved_count} frames saved')  # print number of saved frames
+print(f'{saved_count} frames saved')  
